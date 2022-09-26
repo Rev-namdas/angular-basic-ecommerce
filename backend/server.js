@@ -113,6 +113,32 @@ app.post("/user/login", (req, res) => {
 	})
 })
 
+app.post("/order/place", (req, res) => {
+	const { name, contact, address, ids, date } = req.body
+
+	const sql = "INSERT INTO orders(customer_name, contact, delivery_address, product_id, purchased_date) VALUES ?"
+	const values = ids.map(eachId => [name, contact, address, eachId, date])
+
+	db.query(sql, [values], (err, result) => {
+		if(err)	throw err
+
+		if(result.insertId !== null){
+			return res.send({ message: "Order Placed", flag: "SUCCESS" })
+		}
+
+		return res.send({ result, flag: "FAIL" })
+	})
+})
+
+app.get("/order/list", (req, res) => {
+	const sql = "SELECT * FROM `orders` INNER JOIN `product_table` ON product_table.id = orders.product_id"
+	db.query(sql, (err, result) => {
+		if(err) throw err
+
+		return res.send({ list: result })
+	})
+})
+
 app.listen(1010, () => {
 	console.log('✅ API Server Running...');
 	db.connect(err => {

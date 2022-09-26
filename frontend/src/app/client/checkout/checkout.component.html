@@ -1,1 +1,9 @@
-<p>checkout works!</p>
+<div *ngFor="let order of orders">
+	<div>{{ order.name }} {{ order.price }}</div>
+</div>
+<div>
+	<input type="text" placeholder="Name" [(ngModel)]="nameField">
+	<input type="text" placeholder="Contact No" [(ngModel)]="contactField">
+	<input type="text" placeholder="Delivery Address" [(ngModel)]="addressField">
+	<button (click)="placeOrder()">Place Order</button>
+</div>

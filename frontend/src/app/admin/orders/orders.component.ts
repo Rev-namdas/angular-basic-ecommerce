@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from 'src/app/api/api.service';
 
 @Component({
   selector: 'app-orders',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./orders.component.css']
 })
 export class OrdersComponent implements OnInit {
+  orderList: any = []
 
-  constructor() { }
+  constructor(private apiCall: ApiService) { }
 
   ngOnInit(): void {
+    this.apiCall.orderList().subscribe((data: any) => {
+      this.orderList = data.list
+    })
   }
-
 }

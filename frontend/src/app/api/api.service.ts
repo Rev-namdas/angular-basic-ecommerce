@@ -34,4 +34,12 @@ export class ApiService {
   loginAccount(payload: any){
     return this.http.post(`${this.api_url}/user/login`, payload)
   }
+
+  placeOrder(payload: any){
+    return this.http.post(`${this.api_url}/order/place`, payload)
+  }
+
+  orderList(){
+    return this.http.get(`${this.api_url}/order/list`)
+  }
 }

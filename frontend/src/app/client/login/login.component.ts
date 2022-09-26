@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
     }
     this.apiCall.loginAccount(payload).subscribe((data: any) => {
       if(data.flag === 'SUCCESS'){
+        localStorage.setItem("authstatus", this.usernameField)
         this.router.navigate(['user/checkout'])
       }
     })

@@ -18,7 +18,6 @@ export class CartComponent implements OnInit {
     this.orderList = items;
 
     let loginStatus: any = localStorage.getItem('authstatus');
-    loginStatus = JSON.parse(loginStatus);
     
     if (
       loginStatus === null ||
