@@ -1,0 +1,20 @@
+<nav class="navbar">
+	<div class="navbar__title">
+		<a class="navbar__link" href="/">E Commerce Site</a>
+	</div>
+	
+	<div *ngIf="userRole === 'admin'" class="navbar__navlinks">
+		<div class="navbar__link-wrapper">
+			<a class="navbar__link" href="/admin/products">Products</a>
+		</div>
+		<div class="navbar__link-wrapper">
+			<a class="navbar__link" href="/admin/orders">Orders</a>
+		</div>
+	</div>
+
+	<div *ngIf="userRole === 'user'" class="navbar__navlinks">
+		<div class="navbar__link-wrapper">
+			<a class="navbar__link" href="/user/cart">Cart</a>
+		</div>
+	</div>
+</nav>

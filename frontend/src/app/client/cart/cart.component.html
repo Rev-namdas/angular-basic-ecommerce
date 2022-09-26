@@ -1,0 +1,13 @@
+<div class="order__wrapper">
+  <div class="order__box">
+    <div *ngFor="let eachOrder of orderList">
+      <div>{{ eachOrder.name }} - {{ eachOrder.price }}</div>
+    </div>
+	<a class="order__link" *ngIf="loggedIn === false" href="user/login">
+		<button>Checkout</button>
+	</a>
+	<a class="order__link" *ngIf="loggedIn === true" href="user/checkout">
+		<button>Checkout</button>
+	</a>
+  </div>
+</div>
