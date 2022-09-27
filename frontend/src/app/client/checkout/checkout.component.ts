@@ -12,19 +12,21 @@ export class CheckoutComponent implements OnInit {
   addressField: string = '';
   productIds: any = [];
   purchasedDate: any = '';
-  orders: any = []
+  orderList: any = []
+  totalAmount: number = 0
 
   constructor(private apiCall: ApiService) {}
 
   ngOnInit(): void {
     let orderItems: any = localStorage.getItem('cartdetails');
     orderItems = JSON.parse(orderItems);
-    this.orders = orderItems
+    this.orderList = orderItems
 
     this.productIds = orderItems.map((each: any) => each.id);
     const date = new Date();
     this.purchasedDate = date.toLocaleDateString();
     console.log(date.toLocaleDateString());
+    this.totalAmount = orderItems.reduce((acc: any, next: any) => acc + next.price, 0)
   }
 
   placeOrder() {
@@ -37,6 +39,13 @@ export class CheckoutComponent implements OnInit {
     };
     this.apiCall.placeOrder(payload).subscribe((data) => {
       console.log(data);
+      this.nameField = ""
+      this.contactField = ""
+      this.addressField = ""
+      this.purchasedDate = ""
+      this.orderList = []
+      this.totalAmount = 0
+      localStorage.setItem("cartdetails", JSON.stringify([]))
       alert('Thank You For Your Purchase !')
     })
   }

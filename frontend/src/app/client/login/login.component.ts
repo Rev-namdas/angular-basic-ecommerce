@@ -24,7 +24,12 @@ export class LoginComponent implements OnInit {
     this.apiCall.loginAccount(payload).subscribe((data: any) => {
       if(data.flag === 'SUCCESS'){
         localStorage.setItem("authstatus", this.usernameField)
-        this.router.navigate(['user/checkout'])
+
+        if(data.user.role === 'admin'){ 
+          this.router.navigate(['admin/orders'])
+        } else if(data.user.role === 'user'){
+          this.router.navigate(['user/checkout'])
+        }
       }
     })
   }

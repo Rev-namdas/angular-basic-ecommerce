@@ -14,6 +14,8 @@ export class OrdersComponent implements OnInit {
   ngOnInit(): void {
     this.apiCall.orderList().subscribe((data: any) => {
       this.orderList = data.list
+      console.log(data.list);
+      
     })
   }
 }
