@@ -14,6 +14,8 @@ import { LoginComponent } from './client/login/login.component';
 import { CheckoutComponent } from './client/checkout/checkout.component';
 import { RegisterComponent } from './client/register/register.component';
 import { ConfirmationComponent } from './client/confirmation/confirmation.component';
+import { SliderComponent } from './client/slider/slider.component';
+import { HeaderComponent } from './layout/header/header.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { ConfirmationComponent } from './client/confirmation/confirmation.compon
     LoginComponent,
     CheckoutComponent,
     RegisterComponent,
-    ConfirmationComponent
+    ConfirmationComponent,
+    SliderComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
