@@ -1,18 +1,8 @@
-<div class="productcard__wrapper">
-  <div *ngFor="let eachProduct of productList" class="productcard">
-    <img
-      class="productcard__img"
-      src="assets/images/product-icon.png"
-      alt="Product Icon"
-    />
-    <div class="productcard__name">{{ eachProduct.name }}</div>
-    <div class="productcard__price">{{ eachProduct.price }} Taka</div>
-    <button
-      class="productcard__btn"
-      (click)="addToCart(eachProduct)"
-      [disabled]="eachProduct.clicked ? true : false"
-    >
-      Add To Cart
-    </button>
+<div>
+  <div class="latest-products__header-wrapper">
+    <div class="latest-products__header-bar"></div>
+    <div class="latest-products__header-title">All Products</div>
+    <div class="latest-products__header-bar"></div>
   </div>
+  <app-product-list></app-product-list>
 </div>

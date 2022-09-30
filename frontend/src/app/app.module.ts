@@ -18,6 +18,9 @@ import { SliderComponent } from './client/slider/slider.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { HomepageComponent } from './client/homepage/homepage.component';
 import { LatestProductsComponent } from './client/latest-products/latest-products.component';
+import { ProductListComponent } from './client/product-list/product-list.component';
+import { FooterComponent } from './layout/footer/footer.component';
+import { ProductDetailsPageComponent } from './client/product-details-page/product-details-page.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +38,9 @@ import { LatestProductsComponent } from './client/latest-products/latest-product
     HeaderComponent,
     HomepageComponent,
     LatestProductsComponent,
+    ProductListComponent,
+    FooterComponent,
+    ProductDetailsPageComponent,
   ],
   imports: [
     BrowserModule,

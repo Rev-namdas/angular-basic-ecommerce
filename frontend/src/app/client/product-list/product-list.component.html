@@ -1,0 +1,19 @@
+<div class="product-list__wrapper">
+  <div *ngFor="let eachProduct of productList" class="product-list__items">
+    <div class="product-list__img-wrapper">
+      <img
+        class="product-list__img"
+        src="assets/images/product-icon.png"
+        alt="Product Icon"
+      />
+    </div>
+    <div class="product-list__title">{{ eachProduct.name }}</div>
+    <div class="product-list__price">{{ eachProduct.price }} BDT</div>
+    <div class="product-list__btn-group">
+      <button class="product-list__btn" [routerLink]="['product/details', 123]">Read More</button>
+      <button class="product-list__btn product-list__btn-cart">
+        Add to Cart
+      </button>
+    </div>
+  </div>
+</div>
