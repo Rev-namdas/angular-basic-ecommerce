@@ -16,6 +16,8 @@ import { RegisterComponent } from './client/register/register.component';
 import { ConfirmationComponent } from './client/confirmation/confirmation.component';
 import { SliderComponent } from './client/slider/slider.component';
 import { HeaderComponent } from './layout/header/header.component';
+import { HomepageComponent } from './client/homepage/homepage.component';
+import { LatestProductsComponent } from './client/latest-products/latest-products.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { HeaderComponent } from './layout/header/header.component';
     ConfirmationComponent,
     SliderComponent,
     HeaderComponent,
+    HomepageComponent,
+    LatestProductsComponent,
   ],
   imports: [
     BrowserModule,

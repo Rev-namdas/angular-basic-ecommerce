@@ -20,6 +20,11 @@
 	font-size: 2rem;
 }
 
+.header__reset-link{
+	text-decoration: none;
+	color: black;
+}
+
 .header__searchbar-wrapper{
 	margin-right: auto;
 	margin-left: auto;

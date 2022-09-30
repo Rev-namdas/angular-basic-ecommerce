@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  viewHeader = true
 
-  constructor() { }
+  constructor(private location: Location) { }
 
   ngOnInit(): void {
+    if(this.location.path() == "/user/login" || this.location.path() == "/user/register"){
+      this.viewHeader = false
+    }
   }
 
 }

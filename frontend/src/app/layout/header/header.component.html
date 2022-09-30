@@ -1,6 +1,8 @@
-<div class="header__container">
+<div class="header__container" *ngIf="viewHeader === true">
 	<div class="header__wrapper">
-		<span class="header__logo">LOGO</span>
+		<span class="header__logo">
+			<a href="/" class="header__reset-link">LOGO</a>
+		</span>
 		<span class="header__searchbar-wrapper">
 			<input type="text" class="header__searchbar">
 			<button class="reset-btn-style">
@@ -8,24 +10,20 @@
 			</button>
 		</span>
 		<span class="header__icons">
-			<button class="reset-btn-style">
+			<a href="/wishlist">
 				<img src="assets/images/wishlist.png" alt="Wishlist Icon" class="header__wishlist-icon">
-			</button>
+			</a>
 		</span>
 		<span class="header__icons">
-			<button class="reset-btn-style">
+			<a href="/user/cart" class="header__reset-link">
 				<img src="assets/images/cart.png" alt="Cart Icon" class="header__cart-icon">
-			</button>
+			</a>
 		</span>
 		<span class="header__icons">
-			<button class="reset-btn-style">
-				Log In
-			</button>
+			<a href="/user/login" class="header__reset-link">Log In</a>
 		</span>
 		<span class="header__icons">
-			<button class="reset-btn-style">
-				Sign Up
-			</button>
+			<a href="/user/register" class="header__reset-link">Sign Up</a>
 		</span>
 	</div>
 </div>
