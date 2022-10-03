@@ -33,7 +33,6 @@ export class AllProductsComponent implements OnInit {
     cart = JSON.parse(cart)
 
     cart.push(selectedProduct)
-
     localStorage.setItem("cartdetails", JSON.stringify(cart))
   }
 }

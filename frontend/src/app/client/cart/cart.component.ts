@@ -22,7 +22,6 @@ export class CartComponent implements OnInit {
     this.totalAmount = items.reduce((acc: any, next: any) => acc + next.price, 0)
 
     let loginStatus: any = localStorage.getItem('authstatus');
-
     if (
       loginStatus === null ||
       loginStatus === undefined ||

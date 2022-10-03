@@ -11,8 +11,8 @@ import { ProductDetailsPageComponent } from './client/product-details-page/produ
 import { RegisterComponent } from './client/register/register.component';
 
 const routes: Routes = [
-  { path: "admin/products", component: ProductsComponent },
   { path: "admin/orders", component: OrdersComponent },
+  { path: "admin/products", component: ProductsComponent },
   { path: "", component: HomepageComponent },
   { path: "allproducts", component: AllProductsComponent },
   { path: "user/login", component: LoginComponent },
