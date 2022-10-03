@@ -3,6 +3,8 @@ const cors = require("cors")
 const mysql = require("mysql")
 const morgan = require("morgan")
 const multer = require("multer")
+const path = require("path")
+const fs = require("fs")
 
 const storage = multer.diskStorage({   
 	destination: function(req, file, cb) { 
@@ -70,6 +72,34 @@ app.get("/product/:id", (req, res) => {
 		if(err) throw err
 
 		return res.send(result)
+	})
+})
+
+// view product item by id
+app.get("/product-image/:id", (req, res) => {
+	const product_id = req.params.id
+	const sql = "SELECT * FROM product_table WHERE id = ?"
+
+	db.query(sql, product_id, (err, result) => {
+		if(err) throw err
+
+		if(result[0].product_img === null){
+			const imagePath = path.join(__dirname, "uploads", "product-icon.png") 
+				
+			return res.sendFile(imagePath)
+		}
+
+		const imagePath = path.join(__dirname, result[0].product_img) 
+		
+		fs.exists(imagePath, (exists) => {
+			if(exists){
+				return res.sendFile(imagePath)
+			} else {
+				const imagePath = path.join(__dirname, "uploads", "product-icon.png") 
+				
+				return res.sendFile(imagePath)
+			}
+		})
 	})
 })
 

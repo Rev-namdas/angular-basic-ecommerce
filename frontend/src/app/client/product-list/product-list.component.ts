@@ -9,6 +9,7 @@ import { Products } from 'src/models/Products';
 })
 export class ProductListComponent implements OnInit {
   productList: Products[] = [];
+  imgUrl = ""
 
   constructor(private apiCall: ApiService) {}
 
@@ -23,21 +24,44 @@ export class ProductListComponent implements OnInit {
       localStorage.setItem('cartdetails', JSON.stringify([]));
     }
 
-    if(productStorage == null || productStorage.length == 0){
-      this.apiCall.getProductList().subscribe((data) => {
-        data.map((each: any) => {
+    this.apiCall.getProductList().subscribe((data) => {
+      data.map((each: any) => {
+        this.apiCall.getProductImageById(each.id).subscribe((data) => {
+          this.imgUrl = data
+          each['product_img'] = data
           each['clicked'] = false;
-          this.productList.push(each);
+          this.productList.push(each);          
 
-          localStorage.setItem('products', JSON.stringify(this.productList));
-        });
+          localStorage.setItem('products', JSON.stringify(this.productList));            
+        })
+
       });
-    } else {
-      let productStorage: any = localStorage.getItem('products');
-      productStorage = JSON.parse(productStorage);
+    });
 
-      this.productList = productStorage
-    }
+    // if(productStorage == null || productStorage.length == 0){
+    //   console.log('again');
+      
+    //   this.apiCall.getProductList().subscribe((data) => {
+    //     data.map((each: any) => {
+    //       this.apiCall.getProductImageById(each.id).subscribe((data) => {
+    //         this.imgUrl = data
+    //         each['product_img'] = data
+    //         each['clicked'] = false;
+    //         this.productList.push(each);          
+  
+    //         localStorage.setItem('products', JSON.stringify(this.productList));            
+    //       })
+
+    //     });
+    //   });
+    // } else {
+    //   console.log('else');
+      
+    //   let productStorage: any = localStorage.getItem('products');
+    //   productStorage = JSON.parse(productStorage);
+
+    //   this.productList = productStorage
+    // }
   }
 
   addToCart(selectedProduct: any) {

@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
+import { map } from "rxjs/operators"
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +11,7 @@ export class ApiService {
 
   private api_url = "http://localhost:1010"
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private sanitizer: DomSanitizer) { }
 
   getProductList(): Observable<any>{
     return this.http.get(`${this.api_url}/product/list`)
@@ -17,6 +19,18 @@ export class ApiService {
 
   getProductById(payload: any): Observable<any>{
     return this.http.get(`${this.api_url}/product/${payload}`)
+  }
+
+  getProductImageById(payload: any): Observable<any>{
+    return this.http
+    .get(`${this.api_url}/product-image/${payload}`,
+    { responseType: "blob" })
+    .pipe(
+      map((each: any) => {
+        const urlToBlob = window.URL.createObjectURL(each)
+        return this.sanitizer.bypassSecurityTrustResourceUrl(urlToBlob)
+      })
+    )
   }
 
   uploadImage(payload: any){

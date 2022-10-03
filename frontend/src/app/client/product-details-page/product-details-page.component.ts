@@ -10,6 +10,7 @@ import { ApiService } from 'src/app/api/api.service';
 export class ProductDetailsPageComponent implements OnInit {
   id = 0
   url = ""
+  imgUrl = ""
   product: any = ""
 
   constructor(private location: Location, private apiCall: ApiService) { }
@@ -20,6 +21,11 @@ export class ProductDetailsPageComponent implements OnInit {
 
     this.apiCall.getProductById(this.id).subscribe(data => {
       this.product = data[0]
+    })
+
+    this.apiCall.getProductImageById(this.id).subscribe(data => {
+      
+      this.imgUrl = data      
     })
   }
 }

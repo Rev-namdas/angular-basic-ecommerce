@@ -4,5 +4,6 @@ export class Products {
 	price: number | undefined;
 	stock: number | undefined;
 	sold_amount: number | undefined;
+	product_img: String | undefined;
 	clicked: boolean | undefined;
 }
