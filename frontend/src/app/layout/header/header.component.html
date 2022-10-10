@@ -19,8 +19,11 @@
 				<img src="assets/images/cart.png" alt="Cart Icon" class="header__cart-icon">
 			</a>
 		</span>
-		<span class="header__icons">
+		<span class="header__icons" *ngIf="loggedIn === false">
 			<a href="/user/login" class="header__reset-link">Log In</a>
+		</span>
+		<span class="header__icons" *ngIf="loggedIn === true">
+			<a href="/" class="header__reset-link" (click)="loggedOut()">Log Out</a>
 		</span>
 		<span class="header__icons">
 			<a href="/user/register" class="header__reset-link">Sign Up</a>

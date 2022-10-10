@@ -62,3 +62,8 @@
 	text-decoration: none;
 	color: white;
 }
+
+.register__box-msg{
+	color: red;
+	text-align: center;
+}

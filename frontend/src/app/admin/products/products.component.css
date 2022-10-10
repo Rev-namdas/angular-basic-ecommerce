@@ -1,0 +1,130 @@
+.product__wrapper{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.product__container{
+	height: 10rem;
+	width: 50rem;
+	padding: 1rem;
+	border-radius: 0.2rem;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
+}
+
+.product__form-input-wrapper{
+	display: flex;
+}
+
+.product__form-input{
+	flex: 1;
+	height: 2rem;
+	padding-left: 0.5rem;
+	outline: none;
+	border: 1px solid rgb(4, 109, 170);
+	color: rgb(4, 109, 170);
+}
+
+.product__form-input:nth-child(2){
+	margin: 0 0.5rem;
+}
+
+.product__btn{
+	height: 2rem;
+	width: 7rem;
+	margin-top: 1rem;
+	border: none;
+	outline: none;
+	color: white;
+	border-radius: 0.2rem;
+	cursor: pointer;
+}
+
+.product__btn-add{
+	background-color: rgb(4, 109, 170);
+}
+
+.product__btn-add:hover{
+	background-color: rgb(0, 90, 143);
+}
+
+.product__btn-update{
+	background-color: rgb(4, 170, 79);
+}
+
+.product__btn-update:hover{
+	background-color: rgb(0, 150, 67);
+}
+
+.order__wrapper{
+	height: calc(100vh - 4rem);
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+}
+
+.order__box{
+	margin: 2rem 0;
+	padding: 1rem;
+	min-height: 10rem;
+	height: max-content;
+	width: 50rem;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
+	border-radius: 0.3rem;
+}
+
+.checkout-table__wrapper{
+	display: flex;
+	flex-direction: column;
+}
+
+.checkout-table__item-wrapper{
+	display: flex;
+	align-items: center;
+	text-align: center;
+	padding: 0.5rem 0;
+}
+
+.checkout-table__items{
+	flex: 1;
+	line-height: 2.5rem;
+}
+
+.checkout-table__head{
+	background-color: rgb(4, 109, 170);
+	color: white;
+	height: 3rem;
+	line-height: 2rem;
+	width: 100%;
+}
+
+.product__btn-edit{
+	height: 2rem;
+	width: 5rem;
+	border: none;
+	outline: none;
+	background-color: rgb(0, 153, 77);
+	color: white;
+	border-radius: 0.2rem;
+	cursor: pointer;
+}
+
+.product__btn-edit:hover{
+	background-color: rgb(0, 131, 65);
+}
+
+.product__btn-delete{
+	height: 2rem;
+	width: 5rem;
+	border: none;
+	outline: none;
+	background-color: rgb(182, 27, 0);
+	color: white;
+	border-radius: 0.2rem;
+	cursor: pointer;
+}
+
+.product__btn-delete:hover{
+	background-color: rgb(114, 0, 0);
+}

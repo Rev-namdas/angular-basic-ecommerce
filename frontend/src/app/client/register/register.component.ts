@@ -10,6 +10,7 @@ import { ApiService } from 'src/app/api/api.service';
 export class RegisterComponent implements OnInit {
   usernameField: string = ""
   passwordField: string = ""
+  message = ""
 
   constructor(private apiCall: ApiService, private router: Router) { }
 
@@ -17,14 +18,22 @@ export class RegisterComponent implements OnInit {
   }
 
   registerNewAccount(){
-    const payload = {
-      username: this.usernameField,
-      password: this.passwordField
-    }
-    this.apiCall.registerAccount(payload).subscribe((data: any) => {
-      if(data.flag === 'SUCCESS'){
-        window.location.href = "user/login"
+    if(this.usernameField === ""){
+      this.message = "Username required"
+    } else if(this.passwordField === ""){
+      this.message = "Password required"
+    } else {
+      const payload = {
+        username: this.usernameField,
+        password: this.passwordField
       }
-    })
+      
+      this.apiCall.registerAccount(payload).subscribe((data: any) => {
+        if(data.flag === 'SUCCESS'){
+          window.location.href = "user/login"
+        }
+      })
+    }
+    
   }
 }

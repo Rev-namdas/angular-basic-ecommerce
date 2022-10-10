@@ -67,3 +67,9 @@
 .order-table__checkout-btn:hover{
 	background-color: rgb(1, 129, 65);
 }
+
+.order__title{
+	margin: 0;
+	padding: 0;
+	padding-bottom: 1rem;
+}

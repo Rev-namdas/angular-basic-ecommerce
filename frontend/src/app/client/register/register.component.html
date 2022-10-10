@@ -18,6 +18,8 @@
 		Register
 	</button>
 
+	<div class="register__box-msg" *ngIf="message !== ''">{{ message }}</div>
+
     <!-- <a class="register__box-btn-link" href="user/login">
       <button class="register__box-btn" (click)="registerNewAccount()">
         Register

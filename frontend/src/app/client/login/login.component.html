@@ -14,6 +14,9 @@
 			[(ngModel)]="passwordField"
 		>
 		<button class="login__box-btn" (click)="checkAuthentication()">Login</button>
+
+		<div class="login__box-msg" *ngIf="message !== ''">{{ message }}</div>
+
 		<a class="login__box-link" href="user/register">Create New Account</a>
 	</div>
 </div>

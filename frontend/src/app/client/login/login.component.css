@@ -56,3 +56,8 @@
 .login__box-btn:hover{
 	background-color: rgb(1, 91, 143);
 }
+
+.login__box-msg{
+	color: red;
+	text-align: center;
+}
