@@ -7,8 +7,8 @@
 }
 
 .slider__img {
-  width: 60rem;
-  height: 30rem;
+  width: 90vw;
+  height: 50rem;
   opacity: 1;
   transition-delay: 0.5s;
 }

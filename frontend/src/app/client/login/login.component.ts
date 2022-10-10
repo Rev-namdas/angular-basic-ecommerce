@@ -26,9 +26,9 @@ export class LoginComponent implements OnInit {
         localStorage.setItem("authstatus", this.usernameField)
 
         if(data.user.role === 'admin'){ 
-          this.router.navigate(['admin/orders'])
+          window.location.href = "admin/orders"
         } else if(data.user.role === 'user'){
-          this.router.navigate(['user/checkout'])
+          window.location.href = "user/checkout"
         }
       }
     })

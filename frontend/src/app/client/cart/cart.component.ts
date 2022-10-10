@@ -60,7 +60,7 @@ export class CartComponent implements OnInit {
     if(this.loggedIn){
       this.router.navigate(['user/checkout'])
     } else {
-      this.router.navigate(['user/login'])
+      window.location.href = "user/login"
     }
   }
 }

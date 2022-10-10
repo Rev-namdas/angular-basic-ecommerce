@@ -23,7 +23,7 @@ export class RegisterComponent implements OnInit {
     }
     this.apiCall.registerAccount(payload).subscribe((data: any) => {
       if(data.flag === 'SUCCESS'){
-        this.router.navigate(["user/login"])
+        window.location.href = "user/login"
       }
     })
   }
