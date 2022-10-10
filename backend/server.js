@@ -140,7 +140,7 @@ app.post("/user/registration", (req, res) => {
 		if(err) console.log('select', err.message);
 
 		if(result.length > 0){
-			return res.send({ message: "Username already Exist", flag: "FAIL" })
+			return res.send({ message: "Username Already Exist", flag: "FAIL" })
 		} else {
 			sql = "INSERT INTO users(username, password) VALUES (?, ?)"
 		
@@ -168,7 +168,7 @@ app.post("/user/login", (req, res) => {
 		if(result.length > 0){
 			return res.send({ flag: "SUCCESS", user: result[0] })
 		} else {
-			return res.send({ flag: "FAIL", user: "" })
+			return res.send({ flag: "FAIL", user: "", message: "Incorrect Credential" })
 		}
 	})
 })

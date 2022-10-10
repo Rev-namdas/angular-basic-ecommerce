@@ -31,6 +31,8 @@ export class RegisterComponent implements OnInit {
       this.apiCall.registerAccount(payload).subscribe((data: any) => {
         if(data.flag === 'SUCCESS'){
           window.location.href = "user/login"
+        } else if(data.flag === 'FAIL'){
+          this.message = data.message
         }
       })
     }

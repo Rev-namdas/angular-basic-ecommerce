@@ -39,6 +39,8 @@ export class LoginComponent implements OnInit {
           } else if(data.user.role === 'user'){
             window.location.href = "user/checkout"
           }
+        } else if(data.flag === 'FAIL'){
+          this.message = data.message
         }
       })
     }
